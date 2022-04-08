@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Flask, render_template, request, redirect
 
 import requests
@@ -24,7 +25,7 @@ score = 0
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def main():
 	global score
 
@@ -34,7 +35,6 @@ def main():
 	score = 0
 
 	return render()
-
 
 @app.route('/', methods=['POST'])
 def onButtonClick():
