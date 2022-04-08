@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIME</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="wrapper">
+        <div>
+            <div class="container" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ prevData['image'] }})">
+                <div class="content">
+                    <p class="title">"{{ prevData['title'] }}"</p>
+                    <p class="subtitle">is ranked</p>
+                    <p class="number">{{ prevData['rank'] }}th</p>
+                    <p class="subtitle">of all time</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="container" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ data['image'] }})">
+                <div class="content">
+                    <p class="title">"{{ data['title'] }}"</p>
+                    <p class="subtitle">is ranked</p>
+                    <div id="button-container">
+                        <form id="decision-container" action="/" method="post">
+                            <button type="submit" name="higher">Higher</button>
+                            <button type="submit" name="lower">Lower</button>
+                        </form>
+                    </div>
+                    <p class="subtitle">than {{ prevData['title'] }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="vs">
+        <p>vs.</p>
+    </div>
+    <div id="score">
+        <p>High Score: {{ score }}</p>
+    </div>
+</body>
+</html>

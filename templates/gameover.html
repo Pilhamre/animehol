@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAME OVER</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div id="gameover-wrapper" style="background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url({{ gif }})">
+        <p class="quote-reference">{{ quoteData['character'] }}, {{ quoteData['anime'] }}</p>
+        <p class="quote">"{{ quoteData['quote'] }}"</p>
+        <p id="final-score">{{ score }}</p>
+        <form action="/" method="get">
+            <button type="submit" name="playagain">
+                try again!
+            </button>
+        </form>
+    </div>
+</body>
+</html>
